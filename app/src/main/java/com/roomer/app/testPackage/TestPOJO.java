@@ -10,7 +10,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "test") // tak juz zrobiłem w Supabase zobaczymy czy Hibernate zadziała
+@Table(name = "pies") // tak juz zrobiłem w Supabase zobaczymy czy Hibernate zadziała
 public class TestPOJO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
