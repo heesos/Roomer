@@ -55,7 +55,6 @@ public class UserService {
      * @return User object
      */
     public User getUserById(long id) {
-        System.out.println("service called");
         return userRepository.getReferenceById(id);
     }
 

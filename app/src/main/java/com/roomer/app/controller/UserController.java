@@ -44,11 +44,9 @@ public class UserController {
      * @param id id of user to be found
      * @return User object
      */
-    @GetMapping("/1")
-    public ResponseEntity<User> getUser() {
-        User user = userService.getUserById(52);
-        System.out.println("controller called");
-        System.out.println(user.getId());
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUser(@PathVariable("id") Long id) {
+        User user = userService.getUserById(id);
         return ResponseEntity.ok(user);
     }
 
@@ -69,12 +67,15 @@ public class UserController {
      * @param id id of a User to update
      * @return User object with new data which was saved to database
      */
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Long> updateUser(@RequestBody User user, @PathVariable("id") Long id) {
         userService.updateUser(id, user);
         return ResponseEntity.ok(id);
     }
 
-    //TODO:
-    // - damn all methods apart from getAll are not working idk why
+
+    /*
+    In order to make getUser method work I had to turn off jackson.failed_on_empty_beans.
+
+     */
 }

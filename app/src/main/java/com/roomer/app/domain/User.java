@@ -1,22 +1,24 @@
 package com.roomer.app.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+
 import java.time.LocalDate;
 
 /**
  * User entity, contains main data about the user
  */
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
+@ToString
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "user_table")
 public class User {
+
+    public User () {};
 
     /**
      * Unique identifier of the User.
@@ -41,7 +43,6 @@ public class User {
     /**
      * Date of birth of the user
      */
-    @Temporal(TemporalType.DATE)
     private LocalDate dateOfBirth;
 
     /**
@@ -52,6 +53,7 @@ public class User {
 
     /**
      * Calculates the actual value of the user age.
+     *
      * @return age of the user
      */
     //GET used for fields with @Transient annotation because this field is not stored
@@ -62,7 +64,6 @@ public class User {
 
     //TODO:
     // - store users photo
-    // - create RestController for User
     // - write JavaDoc
     // - create Account class and connect it with the User
     // - read about HTTP response, headers, status code, body
