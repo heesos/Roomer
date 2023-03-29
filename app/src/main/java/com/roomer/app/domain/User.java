@@ -43,6 +43,7 @@ public class User {
     /**
      * Date of birth of the user
      */
+    @Column
     private LocalDate dateOfBirth;
 
     /**
@@ -68,4 +69,5 @@ public class User {
     // - create Account class and connect it with the User
     // - read about HTTP response, headers, status code, body
     // - write tests
+    // - exceptions for services
 }
