@@ -10,9 +10,10 @@ import java.time.LocalDate;
 /**
  * User entity, contains main data about the user
  */
-@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @ToString
 @Getter
+@Builder
+@AllArgsConstructor
 @Setter
 @Entity
 @Table(name = "user_table")
@@ -70,4 +71,5 @@ public class User {
     // - read about HTTP response, headers, status code, body
     // - write tests
     // - exceptions for services
+    // - read about git HEAD
 }

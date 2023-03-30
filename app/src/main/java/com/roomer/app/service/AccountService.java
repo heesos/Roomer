@@ -54,7 +54,7 @@ public class AccountService {
      * @return Account object
      */
     public Account getAccountById(long id) {
-        return accountRepository.getReferenceById(id);
+        return accountRepository.findById(id).orElse(null);
     }
 
     /**

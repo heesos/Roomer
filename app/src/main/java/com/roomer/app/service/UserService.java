@@ -25,8 +25,7 @@ public class UserService {
      * @return created User in database
      */
     public User saveUser(User user) {
-        userRepository.save(user);
-        return user;
+        return userRepository.save(user);
     }
 
     /**
@@ -55,7 +54,7 @@ public class UserService {
      * @return User object
      */
     public User getUserById(long id) {
-        return userRepository.getReferenceById(id);
+        return userRepository.findById(id).orElse(null);
     }
 
     /**
@@ -65,14 +64,19 @@ public class UserService {
      * @param newUser User with the new data
      * @return id of an updated User object
      */
-    public long updateUser(long userId, User newUser) {
-        User userToUpdate = userRepository.getReferenceById(userId);
-        userToUpdate.setName(newUser.getName());
-        userToUpdate.setDescription(newUser.getDescription());
-        userToUpdate.setDateOfBirth(newUser.getDateOfBirth());
+    public User updateUser(long userId, User newUser) {
+        User userToUpdate = userRepository.findById(userId).orElse(null);
 
-        userRepository.save(userToUpdate);
+        if (newUser.getName() != null) {
+            userToUpdate.setName(newUser.getName());
+        }
+        if (newUser.getDescription() != null) {
+            userToUpdate.setDescription(newUser.getDescription());
+        }
+        if (newUser.getDateOfBirth() != null) {
+            userToUpdate.setDateOfBirth(newUser.getDateOfBirth());
+        }
 
-        return userId;
+        return userRepository.save(userToUpdate);
     }
 }

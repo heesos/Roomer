@@ -68,14 +68,7 @@ public class UserController {
      * @return User object with new data which was saved to database
      */
     @PutMapping("/{id}")
-    public ResponseEntity<Long> updateUser(@RequestBody User user, @PathVariable("id") Long id) {
-        userService.updateUser(id, user);
-        return ResponseEntity.ok(id);
+    public ResponseEntity<User> updateUser(@RequestBody User user, @PathVariable("id") Long id) {
+        return ResponseEntity.ok(userService.updateUser(id, user));
     }
-
-
-    /*
-    In order to make getUser method work I had to turn off jackson.failed_on_empty_beans.
-
-     */
 }

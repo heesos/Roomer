@@ -11,7 +11,6 @@ import lombok.ToString;
  * Class holding data for Account
  * @author milosz.marzec
  */
-@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @ToString
 @NoArgsConstructor
 @Setter
