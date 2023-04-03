@@ -67,19 +67,21 @@ public class UserServiceTest {
                 .age(0).name("newName").description("new Description").id(1).dateOfBirth(LocalDate.now()).build();
 
         when(userRepository.findById(anyLong())).thenReturn(Optional.ofNullable(user));
-        doReturn(updatedUser).when(userRepository).save(updatedUser);
-        System.out.println(updatedUser);
-        System.out.println(newUser);
-        System.out.println(user);
-
+        when(userRepository.save(user)).thenReturn(user);
 
         User userAfterUpdate = userService.updateUser(anyLong(), newUser);
+        System.out.println(userAfterUpdate);
 
         Assertions.assertEquals(updatedUser, userAfterUpdate);
-
     }
 
-    //TODO:
-    // - update test does not pass something is wrong with stubbing
+    @Test
+    public void testRemoveUserById() {
+        doNothing().when(userRepository).deleteById(anyLong());
+
+        userService.removeUserById(anyLong());
+
+        verify(userRepository, times(1)).deleteById(anyLong());
+    }
 
 }

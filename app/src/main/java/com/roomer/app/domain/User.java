@@ -10,6 +10,8 @@ import java.time.LocalDate;
 /**
  * User entity, contains main data about the user
  */
+
+@EqualsAndHashCode
 @ToString
 @Getter
 @Builder
