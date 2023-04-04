@@ -1,6 +1,7 @@
 package com.roomer.app.service;
 
 import com.roomer.app.domain.User;
+import com.roomer.app.exception.UserNotFoundException;
 import com.roomer.app.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -70,7 +71,6 @@ public class UserServiceTest {
         when(userRepository.save(user)).thenReturn(user);
 
         User userAfterUpdate = userService.updateUser(anyLong(), newUser);
-        System.out.println(userAfterUpdate);
 
         Assertions.assertEquals(updatedUser, userAfterUpdate);
     }
@@ -82,6 +82,14 @@ public class UserServiceTest {
         userService.removeUserById(anyLong());
 
         verify(userRepository, times(1)).deleteById(anyLong());
+    }
+
+    @Test
+    public void getUserByIdThrowsExceptionTest() {
+        when(userRepository.findById(anyLong())).thenReturn(Optional.empty());
+        Throwable throwable = Assertions.assertThrows(UserNotFoundException.class, () -> userService.getUserById(anyLong()));
+
+        Assertions.assertEquals("User with id: 0 not found.", throwable.getMessage());
     }
 
 }

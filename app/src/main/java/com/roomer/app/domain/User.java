@@ -69,7 +69,6 @@ public class User {
     //TODO:
     // - store users photo
     // - write JavaDoc
-    // - create Account class and connect it with the User
     // - read about HTTP response, headers, status code, body
     // - write tests
     // - exceptions for services

@@ -1,11 +1,13 @@
 package com.roomer.app.service;
 
 import com.roomer.app.domain.User;
+import com.roomer.app.exception.UserNotFoundException;
 import com.roomer.app.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Service class responsible for business logic when performing database operations with User entity
@@ -54,7 +56,12 @@ public class UserService {
      * @return User object
      */
     public User getUserById(long id) {
-        return userRepository.findById(id).orElse(null);
+        Optional<User> user = userRepository.findById(id);
+        if (user.isEmpty()) {
+            throw new UserNotFoundException("User with id: " + id + " not found.");
+        }
+
+        return user.get();
     }
 
     /**
