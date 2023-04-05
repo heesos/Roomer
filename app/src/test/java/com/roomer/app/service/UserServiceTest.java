@@ -14,9 +14,11 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
+/**
+ * tests created using AAA pattern (Arrange/Act/Assert)
+ */
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
 
@@ -35,10 +37,13 @@ public class UserServiceTest {
 
     @Test
     void saveUser() {
+        //Arrange
         when(userRepository.save(any())).thenReturn(user);
 
+        //Act
         User newUser = userService.saveUser(User.builder().build());
 
+        //Assert
         Assertions.assertEquals(newUser, user);
     }
 
@@ -77,6 +82,7 @@ public class UserServiceTest {
 
     @Test
     public void testRemoveUserById() {
+        when(userRepository.findById(anyLong())).thenReturn(Optional.of(user));
         doNothing().when(userRepository).deleteById(anyLong());
 
         userService.removeUserById(anyLong());
@@ -92,4 +98,19 @@ public class UserServiceTest {
         Assertions.assertEquals("User with id: 0 not found.", throwable.getMessage());
     }
 
+    @Test
+    public void deleteUserThrowsException() {
+        when(userRepository.findById(anyLong())).thenReturn(Optional.empty());
+        Throwable throwable = Assertions.assertThrows(UserNotFoundException.class, () -> userService.removeUserById(anyLong()));
+
+        Assertions.assertEquals("User with id: 0 not found. Couldn't delete", throwable.getMessage());
+    }
+
+    @Test
+    public void updateUserThrowsException() {
+        when(userRepository.findById(anyLong())).thenReturn(Optional.empty());
+        Throwable throwable = Assertions.assertThrows(UserNotFoundException.class, () -> userService.updateUser(anyLong(), user));
+
+        Assertions.assertEquals("User with id: 0 not found. Couldn't update.", throwable.getMessage());
+    }
 }

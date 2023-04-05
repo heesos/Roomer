@@ -46,6 +46,11 @@ public class UserService {
      */
 
     public void removeUserById(long id) {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isEmpty()) {
+            throw new UserNotFoundException("User with id: " + id + " not found. Couldn't delete");
+        }
+
         userRepository.deleteById(id);
     }
 
@@ -72,18 +77,23 @@ public class UserService {
      * @return id of an updated User object
      */
     public User updateUser(long userId, User newUser) {
-        User userToUpdate = userRepository.findById(userId).orElse(null);
+        Optional<User> userToUpdate = userRepository.findById(userId);
+        if (userToUpdate.isEmpty()) {
+            throw new UserNotFoundException("User with id: " + userId + " not found. Couldn't update.");
+        }
+
+        User user = userToUpdate.get();
 
         if (newUser.getName() != null) {
-            userToUpdate.setName(newUser.getName());
+            user.setName(newUser.getName());
         }
         if (newUser.getDescription() != null) {
-            userToUpdate.setDescription(newUser.getDescription());
+            user.setDescription(newUser.getDescription());
         }
         if (newUser.getDateOfBirth() != null) {
-            userToUpdate.setDateOfBirth(newUser.getDateOfBirth());
+            user.setDateOfBirth(newUser.getDateOfBirth());
         }
 
-        return userRepository.save(userToUpdate);
+        return userRepository.save(user);
     }
 }
