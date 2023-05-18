@@ -68,4 +68,10 @@ public class AccountController {
         accountService.updateAccount(id, account);
         return ResponseEntity.ok(id);
     }
+
+    @GetMapping("/{mail}/{password}")
+    public ResponseEntity<Account> getAccountEMAIL(@PathVariable("mail") String mail, @PathVariable("password") String password) {
+        Account account = accountService.getAccountLogin(mail, password);
+        return ResponseEntity.ok(account);
+    }
 }
