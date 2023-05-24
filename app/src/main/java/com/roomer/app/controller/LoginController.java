@@ -29,4 +29,7 @@ public class LoginController {
         //this redirect is only for the test purpose
         return "redirect:/api/account/" + authorizedAccount.getEmail() + "/" + authorizedAccount.getPassword();
     }
+
+    //TODO:
+    // service for register
 }
