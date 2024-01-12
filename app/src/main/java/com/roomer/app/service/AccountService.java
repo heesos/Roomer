@@ -1,14 +1,18 @@
 package com.roomer.app.service;
 
 import com.roomer.app.domain.Account;
+import com.roomer.app.exception.AccountNotFoundException;
+import com.roomer.app.exception.UserNotFoundException;
 import com.roomer.app.repository.AccountRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Service class responsible for business logic when performing database operations with Account entity
+ *
  * @author milosz.marzec
  */
 
@@ -73,5 +77,21 @@ public class AccountService {
         accountRepository.save(accountToUpdate);
 
         return accountId;
+    }
+
+    /**
+     * Find the account based on user input data
+     *
+     * @param email    email used for Account
+     * @param password Account password
+     * @return Account entity
+     */
+    public Account getAccountLogin(String email, String password) {
+        Optional<Account> accountOptional = accountRepository.findAccountByEmailAndPassword(email, password);
+        if (accountOptional.isEmpty()) {
+            throw new AccountNotFoundException("Account not found");
+        }
+
+        return accountOptional.get();
     }
 }
