@@ -1,4 +1,4 @@
-package com.roomer.app.controller;
+package com.roomer.app.api;
 
 import com.roomer.app.domain.User;
 import com.roomer.app.service.UserService;
