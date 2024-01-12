@@ -48,7 +48,7 @@ public class AccountController {
 
     /**
      * Deletes a Account from database
-     * @param id id of a Account to delete
+     * @param id id of an Account to delete
      * @return HTTP Status
      */
     @DeleteMapping("/{id}")

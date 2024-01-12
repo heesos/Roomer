@@ -25,7 +25,6 @@ public class LoginController {
     @PostMapping(value = "/login")
     public String authAccount(@ModelAttribute Account account) {
         Account authorizedAccount = accountService.getAccountLogin(account.getEmail(), account.getPassword());
-
         //this redirect is only for the test purpose
         return "redirect:/api/account/" + authorizedAccount.getEmail() + "/" + authorizedAccount.getPassword();
     }
