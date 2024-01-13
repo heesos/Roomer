@@ -1,14 +1,11 @@
-package com.roomer.app.controller;
+package com.roomer.app.api;
 
 import com.roomer.app.domain.Account;
 import com.roomer.app.service.AccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
 @Controller
@@ -16,7 +13,7 @@ public class LoginController {
 
     private AccountService accountService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @GetMapping(value = "/login")
     public String showLogin(Model model) {
         model.addAttribute("Account", new Account());
         return "loginForm";
