@@ -1,5 +1,6 @@
-package com.roomer.app.controller;
+package com.roomer.app.api;
 
+import com.bugsnag.Bugsnag;
 import com.roomer.app.domain.Account;
 import com.roomer.app.service.AccountService;
 import lombok.AllArgsConstructor;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
 
     private AccountService accountService;
+
+    private Bugsnag bugsnag;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String showLogin(Model model) {
