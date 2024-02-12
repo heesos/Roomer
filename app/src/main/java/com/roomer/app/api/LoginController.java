@@ -1,4 +1,4 @@
-package com.roomer.app.controller;
+package com.roomer.app.api;
 
 import com.bugsnag.Bugsnag;
 import com.roomer.app.domain.Account;
@@ -22,7 +22,6 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String showLogin(Model model) {
         model.addAttribute("Account", new Account());
-        bugsnag.notify(new RuntimeException("Test error"));
         return "loginForm";
     }
 
