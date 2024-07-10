@@ -1,5 +1,5 @@
 HELP.md
-target/
+app/target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -38,6 +38,8 @@ build/
 .idea/dictionaries
 .idea/vcs.xml
 .idea/jsLibraryMappings.xml
+.idea/inspectionProfiles
+.idea/shelf
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
