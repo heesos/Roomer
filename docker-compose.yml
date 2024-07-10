@@ -1,0 +1,20 @@
+services:
+  roomer:
+    build: .
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8081"
+    environment:
+      DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+      DATASOURCE_USERNAME: postgres
+      DATASOURCE_PASSWORD: admin
+  postgres:
+    image: postgres:13
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: postgres
+    ports:
+      - "5433:5432"
