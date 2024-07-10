@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.roomer</groupId>
-	<artifactId>app</artifactId>
+	<artifactId>roomer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>app</name>
 	<description>Roomer web application in Spring</description>

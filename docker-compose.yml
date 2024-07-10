@@ -1,6 +1,6 @@
 services:
   roomer:
-    build: .
+    image: hesos123/roomer:0.0.1
     depends_on:
       - postgres
     ports:
