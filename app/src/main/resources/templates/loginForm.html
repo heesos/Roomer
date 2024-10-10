@@ -8,15 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="loginStatic/fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="loginStatic/css/owl.carousel.min.css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="loginStatic/css/bootstrap.min.css">
 
     <!-- Style -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="loginStatic/css/style.css">
 
     <title>Login #2</title>
 </head>
@@ -49,7 +49,7 @@
                                 <input type="checkbox" checked="checked"/>
                                 <div class="control__indicator"></div>
                             </label>
-                            <span class="ml-auto"><a href="#" class="forgot-pass">Register</a></span>
+                            <span class="ml-auto"><a th:href="@{/register}" class="register">Register</a></span>
                         </div>
 
                         <input type="submit" value="Log In" class="btn btn-block btn-primary">
