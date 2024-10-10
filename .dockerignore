@@ -1,0 +1,59 @@
+# flyctl launch added from .gitignore
+**\HELP.md
+**\app\target
+!**\.mvn\wrapper\maven-wrapper.jar
+!**\**\src\main\**\target
+!**\**\src\test\**\target
+!**\app\target\*.jar
+
+### STS ###
+**\.apt_generated
+**\.classpath
+**\.factorypath
+**\.project
+**\.settings
+**\.springBeans
+**\.sts4-cache
+
+### IntelliJ IDEA ###
+**\.idea
+**\*.iws
+**\*.iml
+**\*.ipr
+
+### NetBeans ###
+nbproject\private
+nbbuild
+dist
+nbdist
+.nb-gradle
+**\build
+!**\**\src\main\**\build
+!**\**\src\test\**\build
+
+### VS Code ###
+**\.vscode
+
+# User-specific stuff:
+**\.idea\workspace.xml
+**\.idea\tasks.xml
+**\.idea\dictionaries
+**\.idea\vcs.xml
+**\.idea\jsLibraryMappings.xml
+**\.idea\inspectionProfiles
+**\.idea\shelf
+
+# Sensitive or high-churn files:
+**\.idea\dataSources.ids
+**\.idea\dataSources.xml
+**\.idea\dataSources.local.xml
+**\.idea\sqlDataSources.xml
+**\.idea\dynamic.xml
+**\.idea\uiDesigner.xml
+
+# flyctl launch added from .idea\.gitignore
+# Default ignored files
+.idea\shelf
+.idea\workspace.xml
+fly.toml
+
