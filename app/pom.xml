@@ -58,6 +58,11 @@
 			<version>[3.0,4.0)</version>
 			<artifactId>bugsnag-spring</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
