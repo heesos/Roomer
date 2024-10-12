@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.room-list {
+    display: block; /* Use block layout for the room list */
+}
+
+.room-tile {
+    display: flex; /* Use flexbox for tile layout */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%; /* Each tile takes the full width of the container */
+    margin-bottom: 20px; /* Space between tiles */
+}
+
+.room-tile img {
+    max-width: 100px; /* Set a fixed width for the image */
+    border-radius: 8px;
+    margin-right: 20px; /* Space between image and text */
+}
+
+.room-tile .room-details {
+    display: flex;
+    flex-direction: column; /* Stack details vertically */
+    justify-content: center; /* Center details vertically */
+}
+
+.room-tile h2 {
+    font-size: 1.5em;
+    margin: 0 0 10px;
+}
+
+.room-tile p {
+    margin: 5px 0;
+}

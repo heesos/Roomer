@@ -9,18 +9,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
 @Controller
-public class ListRoomsController {
+public class RoomsController {
 
     private RoomService roomService;
+
     @GetMapping(value = "/rooms")
+    public String showLogin(Model model) {
+        return "roomsListing";
+    }
+    @GetMapping(value = "/roomsList")
     public ResponseEntity<List<Room>> showRooms(Model model) {
         List<Room> roomList= roomService.getAllRooms();
         return ResponseEntity.ok(roomList);
     }
+
 
 }
