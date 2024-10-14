@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const imgSrc = room.pictureURL ? room.pictureURL : 'https://via.placeholder.com/300'; // Placeholder image
                 roomTile.innerHTML = `
-                    <img src="${imgSrc}" alt="${room.description}">
+                    <img src="${imgSrc}" alt="No image">
                     <h2>${room.description}</h2>
                     <p>Landlord: ${room.landLord}</p>
                     <p>Price: $${room.price}</p>

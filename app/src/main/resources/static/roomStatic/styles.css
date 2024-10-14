@@ -27,6 +27,7 @@ h1 {
     padding: 20px;
     width: 100%; /* Each tile takes the full width of the container */
     margin-bottom: 20px; /* Space between tiles */
+    flex-direction: column; /* Stack details vertically */
 }
 
 .room-tile img {
@@ -48,4 +49,21 @@ h1 {
 
 .room-tile p {
     margin: 5px 0;
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#000;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+	margin-top:22px;
 }
