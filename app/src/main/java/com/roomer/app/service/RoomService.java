@@ -3,8 +3,10 @@ package com.roomer.app.service;
 import com.roomer.app.domain.Room;
 import com.roomer.app.repository.RoomRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -31,11 +33,27 @@ public class RoomService {
 
     /**
      * Searches for all Rooms in database
+     * Optional: they can be sorted based on the URL parameter: price_asc, price_dsc,
+     * creation_date_asc, creation_date_desc
      *
+     * @param  sortBy defines the value to sortBy
      * @return list of Rooms
      */
-    public List<Room> getAllRooms() {
-        return roomRepository.findAll();
+    public List<Room> getAllRooms(String sortBy) {
+        List<Room> roomList = Collections.emptyList();
+
+        switch (sortBy) {
+            case "noSorting":
+                roomList = roomRepository.findAll();
+                break;
+            case "price_asc":
+                roomList = roomRepository.findAll(Sort.by(Sort.Direction.ASC, "price"));
+                break;
+            case "price_desc":
+                roomList = roomRepository.findAll(Sort.by(Sort.Direction.DESC, "price"));
+                break;
+        }
+        return roomList;
     }
 
     /**

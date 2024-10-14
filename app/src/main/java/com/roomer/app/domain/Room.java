@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
+
+
 /**
  * Class holding data for Room announcements
  * @author milosz.marzec
@@ -45,9 +48,23 @@ public class Room {
     private double price;
 
     /**
+     * Announcement creation date
+     */
+    @Column
+    @Temporal(TemporalType.DATE)
+    private Date creationDate;
+
+    /**
      * Room pictures (they should be stored in S3 or something similar)
      */
     @Column
     private String pictureURL;
+
+    @PrePersist
+    public void onCreate() {
+        this.creationDate = new Date();
+    }
+
+
 
 }
