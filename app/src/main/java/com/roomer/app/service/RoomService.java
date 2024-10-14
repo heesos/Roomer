@@ -52,6 +52,12 @@ public class RoomService {
             case "price_desc":
                 roomList = roomRepository.findAll(Sort.by(Sort.Direction.DESC, "price"));
                 break;
+            case "date_asc":
+                roomList = roomRepository.findAll(Sort.by(Sort.Direction.DESC, "creationDate"));
+            break;
+            case "date_desc":
+                roomList = roomRepository.findAll(Sort.by(Sort.Direction.DESC, "creationDate"));
+                break;
         }
         return roomList;
     }
